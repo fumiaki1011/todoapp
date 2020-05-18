@@ -1,0 +1,18 @@
+<h1>ToDO一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>タスク名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= link_to '編集', edit_task_path(task.id),class: "command" %></td>
+        <td><%= link_to '削除', task_path(task.id),method: :delete,class: "command" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'タスクを追加', new_task_path, class: "addtask" %> 
